@@ -1,9 +1,10 @@
 {
   "name": "@task-project/source",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start":"nx serve page-home-filters"
+    "start":"nx serve page-home-filters",
+    "build": "nx build page-home-filters"
   },
   "private": true,
   "dependencies": {
