@@ -1,0 +1,40 @@
+/* You can add global styles to this file, and also import other style files */
+@import 'primeng/resources/themes/aura-dark-noir/theme.css';
+@import 'primeng/resources/primeng.css';
+
+.search-input > input {
+  border-color: transparent;
+}
+
+/* Estilo para o p-autoComplete */
+.search-input {
+  flex: 1;
+}
+
+.search-input .p-inputtext {
+  width: 100%;
+  border: none;
+  box-shadow: none;
+  outline: none;
+  background-color: transparent;
+  padding: 0.5rem;
+  color: inherit;
+}
+
+.search-input .p-inputtext,
+.search-input .p-inputtext:focus,
+.search-input .p-inputtext:hover {
+  border-color: transparent !important;
+}
+
+.search-button {
+  border: none;
+  background: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+.search-button .pi {
+  font-size: 1.25rem;
+}

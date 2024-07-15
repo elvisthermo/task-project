@@ -1,0 +1,62 @@
+<div class="container-select">
+  <p-selectButton
+    [options]="stateOptions"
+    [(ngModel)]="value"
+    optionLabel="label"
+    optionValue="value"
+  />
+</div>
+<p-toast />
+
+<div *ngIf="value === 'symbol-news'; else MarketNews">
+  <div class="container-symbol">
+    <div class="chips-symbol-container">
+      <p-chip
+        *ngFor="let tag of searches; let i = index"
+        [label]="tag"
+        [removable]="true"
+        (onRemove)="removeChip(i)"
+      ></p-chip>
+    </div>
+    <div class="button-symbol-container">
+      <p-button
+        rounded="true"
+        styleClass="w-2rem h-2rem p-0"
+        [outlined]="activeIndex !== 0"
+        icon="pi pi-plus"
+        label="add symbol"
+        (onClick)="addSymbol()"
+      >
+      </p-button>
+    </div>
+  </div>
+
+  <div class="add-symbol">
+    <div class="search-bar">
+      <span class="pi pi-search search-button"></span>
+      <p-autoComplete
+        [(ngModel)]="selectedItem"
+        [suggestions]="suggestions"
+        (completeMethod)="search()"
+        styleClass="search-input"
+        placeholder="Pesquisar"
+        (keydown.enter)="addSymbol()"
+        [group]="true"
+      >
+        <ng-template pTemplate="item" let-suggestion>
+          <div *ngIf="suggestion.type === 'group'" class="group-title">
+            {{ suggestion.label }}
+          </div>
+          <div *ngIf="suggestion.type !== 'group'" class="suggestion-item">
+            {{ suggestion }}
+          </div>
+        </ng-template>
+      </p-autoComplete>
+    </div>
+  </div>
+  <app-content-table [content]="content_news"></app-content-table>
+</div>
+
+<ng-template #MarketNews>
+  <app-content-table [content]="content_market"></app-content-table>
+</ng-template>

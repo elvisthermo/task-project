@@ -1,0 +1,45 @@
+.item-news {
+  padding: 4px;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.details {
+  display: flex;
+  align-items: center;
+  font-size: 0.9em;
+  color: #666;
+}
+
+.details p {
+  margin: 0;
+  padding: 0 8px;
+}
+
+.details p:not(:last-child)::after {
+  content: '|';
+  margin-left: 8px;
+}
+
+/* styles for link */
+.news-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: bold;
+  transition: color 0.2s ease-in-out;
+}
+
+.news-link:hover {
+  color: #666;
+}
+
+.empty-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

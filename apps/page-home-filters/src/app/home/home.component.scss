@@ -1,0 +1,76 @@
+.container-select {
+  margin: 1rem;
+  padding: 1rem;
+}
+.container-symbol {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1rem;
+}
+
+.chips-symbol-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.button-symbol-container {
+  /* Se você quiser ajustar o posicionamento do botão, adicione estilos aqui */
+}
+
+@media (max-width: 600px) {
+  .container-symbol {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .button-symbol-container {
+    align-self: flex-end;
+  }
+}
+
+.add-symbol {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/*  */
+
+/* Ajuste opcional de estilos para o ícone de pesquisa */
+.p-input-icon-left .p-inputtext {
+  padding-left: 2.5rem; /* Ajuste o espaçamento conforme necessário */
+}
+.p-input-icon-left .pi {
+  position: absolute;
+  left: 0.5rem; /* Ajuste a posição do ícone conforme necessário */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ccc; /* Cor do ícone */
+}
+
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  color: #ffffff;
+  background: #09090b;
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #3f3f46;
+  border-radius: 0.4rem;
+}
+
+.group-title {
+  font-weight: bold;
+  padding: 8px;
+  color: #ccc;
+}
+
+.suggestion-item {
+  padding: 8px;
+  cursor: pointer;
+}
