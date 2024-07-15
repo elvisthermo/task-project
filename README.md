@@ -12,11 +12,11 @@ comes with a LSP for Vim users.
 
 ## Start the application
 
-Run `npx nx serve task-project` to start the development server. Happy coding!
+Run `npx nx serve page-home-filters` to start the development server. Happy coding!
 
 ## Build for production
 
-Run `npx nx build task-project` to build the application. The build artifacts are stored in the output directory (e.g. `dist/` or `build/`), ready to be deployed.
+Run `npx nx build page-home-filters` to build the application. The build artifacts are stored in the output directory (e.g. `dist/` or `build/`), ready to be deployed.
 
 ## Running tasks
 
