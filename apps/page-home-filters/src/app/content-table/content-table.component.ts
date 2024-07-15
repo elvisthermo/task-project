@@ -8,5 +8,4 @@ import { Content } from '../interfaces/news';
 })
 export class ContentTableComponent {
   @Input() content!: Content[];
-
 }

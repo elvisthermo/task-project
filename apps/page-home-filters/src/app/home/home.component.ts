@@ -1,55 +1,32 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { TabViewModule } from 'primeng/tabview';
-import { ButtonModule } from 'primeng/button';
-import { SelectButtonModule } from 'primeng/selectbutton';
-import { FormsModule } from '@angular/forms';
-import { ChipModule } from 'primeng/chip';
-import { TableModule } from 'primeng/table';
-import { AutoCompleteModule } from 'primeng/autocomplete';
-import { InputGroupModule } from 'primeng/inputgroup';
-import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
-import { InputTextModule } from 'primeng/inputtext';
-import { ContentService } from '../services/content.service';
-import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { ISugestions } from '../interfaces/ISugestions';
 import { Content } from '../interfaces/news';
+import { ContentService } from '../services/content.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { ButtonModule } from 'primeng/button';
+import { ChipModule } from 'primeng/chip';
+import { ToastModule } from 'primeng/toast';
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { ContentTableModule } from '../content-table/content-table.module';
-
-interface AutoCompleteCompleteEvent {
-  originalEvent: Event;
-  query: string;
-}
-
-interface EventSearch {
-  query: string;
-}
-
-interface ISugestions {
-  type: string;
-  label: string;
-  items: string[];
-}
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
     CommonModule,
-    TabViewModule,
-    ButtonModule,
-    SelectButtonModule,
     FormsModule,
-    AutoCompleteModule,
+    SelectButtonModule,
+    ButtonModule,
     ChipModule,
-    TableModule,
-    InputGroupModule,
-    InputGroupAddonModule,
-    InputTextModule,
     ToastModule,
+    AutoCompleteModule,
     ContentTableModule,
   ],
-  providers: [MessageService],
+  providers: [MessageService, ContentService],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss',
 })
@@ -59,13 +36,13 @@ export class HomeComponent {
     { label: 'Market News', value: 'market-news' },
     { label: 'Symbol News', value: 'symbol-news' },
   ];
-  value: never | string = 'market-news';
+  value = 'market-news';
   activeIndex = 0;
   content_news!: Content[];
   content_market!: Content[];
   filteredSearches: string[] = [];
   selectedItem = '';
-  suggestions: any | string;
+  suggestions: ISugestions[] |  any[];
 
   constructor(
     private contentService: ContentService,
@@ -75,20 +52,6 @@ export class HomeComponent {
     this.searches = this.contentService.getRecentSearch();
     this.content_market = this.contentService.getContentMarket();
     this.suggestions = [{ label: 'Recent Search', disabled: true }];
-  }
-
-  filterSearches(event: EventSearch) {
-    const filtered: string[] = [];
-    const query = event.query.toLowerCase();
-
-    for (let i = 0; i < this.searches.length; i++) {
-      const search = this.searches[i];
-      if (search.toLowerCase().indexOf(query) == 0) {
-        filtered.push(search);
-      }
-    }
-
-    this.filteredSearches = filtered;
   }
 
   search() {

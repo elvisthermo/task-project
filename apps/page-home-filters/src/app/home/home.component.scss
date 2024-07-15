@@ -17,10 +17,6 @@
   gap: 8px;
 }
 
-.button-symbol-container {
-  /* Se você quiser ajustar o posicionamento do botão, adicione estilos aqui */
-}
-
 @media (max-width: 600px) {
   .container-symbol {
     flex-direction: column;
@@ -40,16 +36,15 @@
 
 /*  */
 
-/* Ajuste opcional de estilos para o ícone de pesquisa */
 .p-input-icon-left .p-inputtext {
-  padding-left: 2.5rem; /* Ajuste o espaçamento conforme necessário */
+  padding-left: 2.5rem;
 }
 .p-input-icon-left .pi {
   position: absolute;
-  left: 0.5rem; /* Ajuste a posição do ícone conforme necessário */
+  left: 0.5rem;
   top: 50%;
   transform: translateY(-50%);
-  color: #ccc; /* Cor do ícone */
+  color: #ccc;
 }
 
 .search-bar {
